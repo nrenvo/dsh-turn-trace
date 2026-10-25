@@ -1,0 +1,11 @@
+# dsh-turn-trace — the bundle layer a profile mounts.
+#
+# Install (recommended):
+#   dsh plugin --profile desktop add dsh-turn-trace
+#
+# Mount the patch by hand instead:
+#   dsh --profile desktop --patch node_modules/dsh-turn-trace/cordis.patch.yml
+
+- insert:
+    - id: turns
+      name: 'dsh-turn-trace'

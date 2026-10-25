@@ -1,0 +1,76 @@
+{
+  "name": "dsh-turn-trace",
+  "version": "1.4.8",
+  "description": "Client-only Turns tab for DeepSeek Harness: expand a turn to see its money, expand a step to see what that cost.",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "docs/images",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "build": "tsdown && node scripts/wrap-client.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx tests/smoke.ts",
+    "prepack": "npm run build",
+    "test:activation": "node tests/activation.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.3.0",
+    "tsdown": "^0.23.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.0"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cost",
+    "pricing",
+    "turns",
+    "steps"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nrenvo/dsh-turn-trace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nrenvo/dsh-turn-trace/issues"
+  },
+  "homepage": "https://github.com/nrenvo/dsh-turn-trace#readme"
+}
